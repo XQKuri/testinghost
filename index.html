@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Initiators — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    
+    .card {
+      transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(255,210,77,0.25), 0 10px 20px rgba(0,0,0,0.4);
+    }
+    .card .thumb img {
+      transition: transform 0.4s ease;
+    }
+    .card:hover .thumb img {
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="logo"></span><b>The Initiators</b></a>
+      <nav class="nav">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="info.html">More Info</a>
+        <a href="about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>Discover the negative side effects of AI and the digital world</h1>
+          <p>AI & the internet are powerful, but they also carry risks such as addiction, cyberbullying, misinformation, and deepfakes. Learn how to navigate them safely.</p>
+          <div class="cta">
+            <a class="btn" href="info.html">Explore all options</a>
+          </div>
+        </div>
+        <div class="preview">
+          <div class="photo-wrap">
+            <img src="Img/intro.png" alt="AI themed" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Important topics</h2>
+        <div class="grid">
+          <article class="card"><div class="thumb"><img src="Img/cyberbully.png" alt=""></div><h3>Cyberbullying</h3><p>Save evidence, block, and report. Talk to someone you trust and seek help when needed.</p><div class="cta"><a class="btn" href="info.html#cyberbullying">See more</a></div></article>
+          <article class="card"><div class="thumb"><img src="Img/misinfo.png" alt=""></div><h3>Misinformation</h3><p>Check the source and date, compare at least three outlets. Watch for exaggerated headlines and AI-made visuals.</p><div class="cta"><a class="btn" href="info.html#misinformation">Read more</a></div></article>
+          <article class="card"><div class="thumb"><img src="Img/ Privacy Illustration.png" alt=""></div><h3>Privacy</h3><p>Apps collect your data. Use strong passwords + 2FA, limit permissions, and review what you share.</p><div class="cta"><a class="btn" href="info.html#privacy">Read more</a></div></article>
+          <article class="card"><div class="thumb"><img src="Img/Social media addiction .png" alt=""></div><h3>Social media</h3><p>Endless feeds and notifications can harm focus and sleep. Set limits and plan screen-free moments.</p><div class="cta"><a class="btn" href="info.html#social-media">Read more</a></div></article>
+          <article class="card"><div class="thumb"><img src="Img/AI make Art 1.png" alt=""></div><h3>AI-generated content</h3><p>Deepfakes and AI-written text can mislead. Verify important claims and stay skeptical.</p><div class="cta"><a class="btn" href="info.html#ai-generated">See more</a></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><p>&copy; 2025 The Initiators</p></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), index * 300);
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>

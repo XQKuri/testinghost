@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .team .member {
+      flex: 1 1 320px;
+      max-width: 380px;
+      transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease;
+      min-height: 540px;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .team .member.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .team .member:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(255,210,77,0.25), 0 10px 20px rgba(0,0,0,0.4);
+    }
+    .member .photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .member .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .team .member:hover .photo img {
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="logo"></span><b>The Initiators</b></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="info.html">More Info</a>
+        <a href="about.html" aria-current="page">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-hero">
+      <div class="container">
+        <h1>Meet The Initiators</h1>
+        <p>Here are the people behind this project.</p>
+      </div>
+    </section>
+
+    <section class="team">
+      <div class="container" style="display:flex;flex-wrap:wrap;justify-content:center;gap:24px;">
+        <article class="member">
+          <div class="photo"><img src="Img/WhatsApp Image 2025-10-22 at 13.08.57.jpeg" alt="Aisha"></div>
+          <div class="body"><h3>Varel Van der San</h3><p class="meta">Programmer & Content</p><p>Varel coordinates content and helps building the website, making sure our website has relevant info.</p></div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="Img/WhatsApp Image 2025-10-22 at 19.33.36.jpeg" alt="Daniel"></div>
+          <div class="body"><h3>Christian Jaigobin</h3><p class="meta">Programmer & Design</p><p>Christian shapes the look and feel so everything is accessible and friendly on all screens.</p></div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="Img/IMG_9005.jpeg" alt="Priya"></div>
+          <div class="body"><h3>Tanaaz Imambaks</h3><p class="meta">Programmer & Design</p><p>Tanaaz brings creativity and precision together, ensuring every design feels modern, intuitive, and beautifully balanced across all platforms.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" style="padding-bottom:42px">
+      <a class="btn" href="index.html">← Back to Home</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><p>&copy; 2025 The Initiators</p></div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    const members = document.querySelectorAll('.member');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), index * 300);
+        }
+      });
+    }, { threshold: 0.2 });
+    members.forEach(member => observer.observe(member));
+  </script>
+</body>
+</html>

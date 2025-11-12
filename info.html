@@ -1,0 +1,115 @@
+yn<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Initiators — More Info</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .info-section {
+      transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .info-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .info-section:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(255,210,77,0.25), 0 10px 20px rgba(0,0,0,0.4);
+    }
+    .info-video iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 14px;
+      border: none;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease;
+    }
+    .info-video iframe:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="logo"></span><b>The Initiators</b></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="info.html" aria-current="page">More Info</a>
+        <a href="about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="info-top">
+      <div class="container">
+        <h1>Risks of the Digital World</h1>
+        <p>Explore the key digital challenges with a mix of insightful articles and awareness videos.</p>
+      </div>
+    </section>
+    <section>
+      <div class="container info-layout">
+        <aside class="toc" aria-label="Topics">
+          <h4>Topics</h4>
+          <a href="#cyberbullying" class="is-active">Cyberbullying (Video)</a>
+          <a href="#misinformation">Misinformation</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#social-media">Social Media</a>
+          <a href="#ai-generated">AI-generated Content (Video)</a>
+        </aside>
+        <div class="info-content">
+          <article id="cyberbullying" class="info-section info-video">
+            <h2>Cyberbullying (Video)</h2>
+            <iframe src="https://www.youtube.com/embed/G_K9z7tdzy8" title="Cyberbullying Awareness" allowfullscreen></iframe>
+            <p>This video highlights what cyberbullying is and how to combat it.</p>
+          </article>
+          <article id="misinformation" class="info-section">
+            <h2>Misinformation</h2>
+            <p>Misinformation is false or inaccurate information that is spread, often without the spreader's knowledge. This spread happens incredibly quickly on social media because people share messages without first verifying their veracity. Misinformation can arise from misunderstandings, poor journalism, or misinterpretation of facts. Sometimes it seems harmless, but it can have serious consequences. Think of fake news about health, elections, or disasters, which can lead people to make wrong decisions. Therefore, it's important to remain critical when reading news online. Always check the source and look for reliable websites or official organizations. Platforms like Facebook and X (formerly Twitter) try to limit misinformation with fact-checkers, but users also have a responsibility to be vigilant.
+</p>
+          </article>
+          <article id="privacy" class="info-section">
+            <h2>Privacy</h2>
+            <p>Privacy means the right to keep personal information private. This is becoming increasingly difficult online, as many websites and apps collect data about your activities. Think of searches, location, purchases, and even what you "like." Companies use this data to personalize ads, but sometimes the information is misused or sold to third parties. That's why online privacy has become a major issue. Users can protect themselves by using strong passwords, not sharing personal data everywhere, and adjusting their privacy settings. Governments have created laws, such as the GDPR (General Data Protection Regulation), to protect citizens. Yet, it remains a shared responsibility: you, too, must be aware of what you share online. Privacy isn't something you only miss when it's too late, but something you must actively protect.
+</p>
+          </article>
+          <article id="social-media" class="info-section">
+            <h2>Social Media</h2>
+            <p>Social media are online platforms where people can share information, photos, videos, and opinions with others. Well-known examples include Instagram, TikTok, Facebook, and Snapchat. They play a major role in daily life, especially for young people. Social media facilitates communication and ensures that people stay connected all over the world. However, they also have drawbacks: they can lead to addiction, FOMO (fear of missing out), and even mental health issues. Moreover, fake news and misleading images are often spread. It's important to be mindful of what you share and read. Use social media not only for entertainment but also as a source of knowledge and inspiration. Privacy settings and a critical attitude help you stay safe online. Ultimately, it's all about finding the balance between digital and real-life contact.
+</p>
+          </article>
+          <article id="ai-generated" class="info-section info-video">
+            <h2>AI-generated Content (Video)</h2>
+            <iframe width="1216" height="684" src="https://www.youtube.com/embed/f9HwA5IR-sg" title="It Begins: An AI Literally Attempted Murder To Avoid Shutdown" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>This video explores the real danger of generative AI content.</p>
+          </article>
+          <div class="info-actions">
+            <a class="btn" href="index.html">← Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container"><p>&copy; 2025 The Initiators</p></div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    const sections = document.querySelectorAll('.info-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), index * 200);
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>
